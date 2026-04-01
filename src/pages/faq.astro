@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { GlassCard } from '../components/ui/GlassCard.tsx';
+---
+
+<Layout title="常见问题 - 盘盘STRC">
+  <div class="max-w-5xl mx-auto px-4 py-12 md:py-20">
+    <!-- Header Section -->
+    <div class="mb-16 space-y-4">
+      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-btc/10 border border-btc/20 mb-4">
+        <span class="w-2 h-2 rounded-full bg-btc animate-pulse"></span>
+        <span class="text-btc text-xs font-mono tracking-wider uppercase">知识库</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-white tracking-tight">
+        常见<span class="text-btc">问题</span>
+      </h1>
+      <p class="text-lg text-muted max-w-2xl leading-relaxed">
+        关于比特币支持的优先股、分红机制，以及本终端如何追踪STRC发行的所有信息。
+      </p>
+    </div>
+
+    <div class="space-y-16">
+      
+      <!-- Category 1: About the Securities -->
+      <section>
+        <h2 class="text-2xl font-display font-semibold text-white mb-6 border-b border-white/10 pb-4">
+          01. 关于证券
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <GlassCard hover={true} className="flex flex-col h-full">
+            <h3 class="text-lg font-display text-white mb-3">什么是 <span class="font-mono text-btc">STRC</span>？</h3>
+            <p class="text-muted leading-relaxed text-sm flex-grow">
+              STRC是Strategy永续优先股，由Strategy（原MicroStrategy）发行。年票面利率为<span class="text-white font-mono">11.50%</span>，面值<span class="text-white font-mono">$100</span>，每月分红<span class="text-white font-mono">$0.9583</span>。
+            </p>
+          </GlassCard>
+
+          <GlassCard hover={true} className="flex flex-col h-full md:col-span-2">
+            <h3 class="text-lg font-display text-white mb-3">什么是面值？</h3>
+            <p class="text-muted leading-relaxed text-sm flex-grow">
+              面值为<span class="text-white font-mono">$100</span>——优先股的票面或清算价值。STRC 11.50%的固定年分红率严格基于此$100面值计算，与股票当前交易价格无关。
+            </p>
+          </GlassCard>
+        </div>
+      </section>
+
+      <!-- Category 2: Dividends & Income -->
+      <section>
+        <h2 class="text-2xl font-display font-semibold text-white mb-6 border-b border-white/10 pb-4">
+          02. 分红与收入
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <GlassCard hover={true} className="flex flex-col h-full">
+            <h3 class="text-lg font-display text-white mb-3">分红如何运作？</h3>
+            <p class="text-muted leading-relaxed text-sm flex-grow">
+              分红每月支付。要获得分红，您必须在除息日之前持有该股票。这些是<span class="text-white">累积优先股</span>，如果发行方错过付款，在向普通股支付任何股息之前，有法律义务补发所有欠款。
+            </p>
+          </GlassCard>
+
+          <GlassCard hover={true} className="flex flex-col h-full">
+            <h3 class="text-lg font-display text-white mb-3">什么是资本返还(ROC)？</h3>
+            <p class="text-muted leading-relaxed text-sm flex-grow">
+              部分分红可能在税务上被归类为资本返还(ROC)。ROC降低您的成本基础，而非立即作为普通收入纳税，为投资者提供显著的潜在税收优势。
+            </p>
+          </GlassCard>
+
+          <GlassCard hover={true} className="flex flex-col h-full md:col-span-2">
+            <h3 class="text-lg font-display text-white mb-3">当前收益率 vs 票面利率</h3>
+            <p class="text-muted leading-relaxed text-sm flex-grow">
+              <span class="text-white">票面利率</span>固定为11.50%，基于$100面值。<span class="text-btc">当前收益率</span>是动态的，由年分红除以股票当前市价计算。低于面值买入，收益率高于票面利率；高于面值买入，收益率低于票面利率。
+            </p>
+          </GlassCard>
+        </div>
+      </section>
+
+      <!-- Category 3: ATM & Bitcoin -->
+      <section>
+        <h2 class="text-2xl font-display font-semibold text-white mb-6 border-b border-white/10 pb-4">
+          03. ATM与比特币机制
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <GlassCard hover={true} className="flex flex-col h-full md:col-span-2">
+            <h3 class="text-lg font-display text-white mb-3">什么是ATM发行？</h3>
+            <p class="text-muted leading-relaxed text-sm flex-grow">
+              按市价发行(ATM)允许发行方以当前市价直接向市场出售新股。当股价<span class="text-white font-mono">&ge; $100</span>（面值）时，发行方可以增值性出售新股并用所得购入比特币，扩大其储备。
+            </p>
+          </GlassCard>
+
+          <GlassCard hover={true} className="flex flex-col h-full">
+            <h3 class="text-lg font-display text-white mb-3">比特币支撑如何运作？</h3>
+            <p class="text-muted leading-relaxed text-sm flex-grow">
+              IPO和持续ATM销售的所得用于购入比特币。这些比特币持有量记录在发行方资产负债表上，作为优先股分红和清算义务的支撑。
+            </p>
+          </GlassCard>
+
+          <GlassCard hover={true} className="flex flex-col h-full">
+            <h3 class="text-lg font-display text-white mb-3">如果BTC价格下跌怎么办？</h3>
+            <p class="text-muted leading-relaxed text-sm flex-grow">
+              无论比特币价格如何波动，分红义务在法律上仍然有效。长期付款的可持续性取决于发行方的整体比特币持有量、现金储备和运营收入。
+            </p>
+          </GlassCard>
+        </div>
+      </section>
+
+      <!-- Category 4: Data & Disclaimers -->
+      <section>
+        <h2 class="text-2xl font-display font-semibold text-white mb-6 border-b border-white/10 pb-4">
+          04. 数据与免责声明
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <GlassCard hover={true} className="flex flex-col h-full">
+            <h3 class="text-lg font-display text-white mb-3">数据来源？</h3>
+            <p class="text-muted leading-relaxed text-sm flex-grow">
+              比特币价格来自CoinGecko API，股市数据来自Yahoo Finance，官方IPO/ATM数据直接从SEC EDGAR数据库手动整理。
+            </p>
+          </GlassCard>
+
+          <GlassCard hover={true} className="flex flex-col h-full">
+            <h3 class="text-lg font-display text-white mb-3">数据多久更新一次？</h3>
+            <p class="text-muted leading-relaxed text-sm flex-grow">
+              终端在市场活跃时段每<span class="text-white font-mono">30秒</span>更新比特币价格，每<span class="text-white font-mono">60秒</span>更新股票价格。SEC文件和ATM发行数据在发布后手动更新。
+            </p>
+          </GlassCard>
+
+          <GlassCard hover={false} className="flex flex-col h-full md:col-span-2 border-dashed border-white/20 bg-black/40">
+            <div class="flex items-start space-x-3">
+              <div class="mt-1 text-btc">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-display text-white mb-2">这是投资建议吗？</h3>
+                <p class="text-muted leading-relaxed text-sm">
+                  <span class="text-white font-medium">不是。</span>本终端仅供教育和信息参考。我们不是金融顾问，本站内容不构成投资建议、买卖证券的推荐或对任何策略的背书。请始终咨询持牌专业人士并自行研究。
+                </p>
+              </div>
+            </div>
+          </GlassCard>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</Layout>

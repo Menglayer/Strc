@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { LiveTickerTape } from '../components/ticker/LiveTickerTape.tsx';
+import { ATMDashboard } from '../components/dashboard/ATMDashboard.tsx';
+import { HomeFilingsPreview } from '../components/filings/HomeFilingsPreview.tsx';
+---
+
+<Layout title="盘盘STRC | BTC优先股收益终端">
+    <LiveTickerTape client:load />
+    
+    <div class="max-w-6xl mx-auto px-4 py-6 space-y-6">
+        <!-- ATM Status Table -->
+        <ATMDashboard client:load />
+
+        <!-- Latest SEC Filings -->
+        <HomeFilingsPreview client:load />
+    </div>
+</Layout>

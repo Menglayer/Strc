@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark: #080c18;
+  --color-card: #0f1525;
+  --color-card-hover: #161d30;
+  --color-border: #1a2240;
+  --color-border-hover: #243055;
+  --color-btc: #F7931A;
+  --color-btc-gold: #FFB347;
+  --color-accent: #00d4ff;
+  --color-green: #22c55e;
+  --color-red: #ef4444;
+  --color-muted: #7b8394;
+  
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-display: 'Noto Sans SC', system-ui, sans-serif;
+}
+
+@utility glass-card {
+  backdrop-filter: blur(16px);
+  background-color: color-mix(in srgb, white 4%, transparent);
+  border: 1px solid color-mix(in srgb, white 8%, transparent);
+  border-radius: 1rem;
+}
+
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility logo-glow {
+  filter: drop-shadow(0 0 8px rgba(247, 147, 26, 0.5));
+}
+
+@layer utilities {
+  .animate-shimmer {
+    animation: shimmer 2s infinite linear;
+    background: linear-gradient(to right, rgba(255,255,255,0.05) 4%, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.05) 36%);
+    background-size: 1000px 100%;
+  }
+
+  .animate-pulse-dot {
+    animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .5; transform: scale(1.5); }
+}
+
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  animation: ticker-scroll 30s linear infinite;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--color-dark);
+  color: #e4e4e7;
+  font-family: var(--font-display);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

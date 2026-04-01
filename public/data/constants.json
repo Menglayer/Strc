@@ -1,0 +1,28 @@
+{
+  "strc": {
+    "name": "Strategy Perpetual Strife Preferred Stock",
+    "ticker": "STRC",
+    "rate": 11.25,
+    "monthlyDividend": 0.9375,
+    "parValue": 100.0,
+    "issuer": "Strategy (formerly MicroStrategy)",
+    "ipoDate": "2025-07-29",
+    "ipoShares": 28011111,
+    "ipoProceeds": 2520000000
+  },
+  "sata": {
+    "name": "Strive Asset Trust A",
+    "ticker": "SATA",
+    "rate": 12.25,
+    "monthlyDividend": 1.0208,
+    "parValue": 100.0,
+    "issuer": "Strive",
+    "ipoDate": "2025-11-10",
+    "ipoShares": 2000000,
+    "ipoProceeds": 149300000
+  },
+  "thresholds": {
+    "atmPriceThreshold": 100.0,
+    "defaultAtmPercentage": 50
+  }
+}

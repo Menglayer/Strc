@@ -1,0 +1,24 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { GlassCard } from '../../components/ui/GlassCard';
+import { SustainabilityModel } from '../../components/tools/SustainabilityModel';
+---
+<Layout title="可持续性模型 | 盘盘STRC" description="分析比特币持有量能否维持长期分红义务。">
+    <div class="max-w-6xl mx-auto px-4 py-8 md:py-12">
+        <a href="/tools" class="inline-flex items-center text-sm text-muted hover:text-white mb-6 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            返回工具
+        </a>
+        
+        <div class="mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold font-display text-white mb-3">可持续性模型</h1>
+            <p class="text-muted text-lg max-w-2xl">分析比特币持有量能否维持长期分红义务。</p>
+        </div>
+
+        <GlassCard className="p-4 md:p-8">
+            <SustainabilityModel client:load />
+        </GlassCard>
+    </div>
+</Layout>

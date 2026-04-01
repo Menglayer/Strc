@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { GlassCard } from '../components/ui/GlassCard.tsx';
+import { DividendsTable } from '../components/dividends/DividendsTable.tsx';
+---
+
+<Layout title="STRC 分红历史 | 利率、日期与预测 - 盘盘STRC">
+    <div class="max-w-6xl mx-auto px-4 py-6">
+        <header class="mb-6">
+            <h1 class="text-3xl font-bold font-display text-white">分红记录</h1>
+            <p class="text-muted mt-2">追踪STRC优先股的分红利率、历史记录与预测。</p>
+        </header>
+
+        <DividendsTable client:load />
+
+        <!-- Education section -->
+        <div class="mt-12 space-y-6">
+            <h2 class="text-xl font-bold font-display">了解STRC分红</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <GlassCard>
+                    <h3 class="font-bold text-white mb-2">资本返还(ROC)税务处理</h3>
+                    <p class="text-sm text-muted">STRC的分红通常被归类为资本返还(ROC)，而非普通股息。这意味着分配金额将降低您的成本基础，而非在收到时作为收入纳税。</p>
+                </GlassCard>
+                <GlassCard>
+                    <h3 class="font-bold text-white mb-2">STRC 分红时间表</h3>
+                    <p class="text-sm text-muted">STRC每月月末付息。持有STRC可获得稳定的月度被动收入。</p>
+                </GlassCard>
+            </div>
+        </div>
+    </div>
+</Layout>

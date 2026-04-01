@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { GlassCard } from '../components/ui/GlassCard.tsx';
+import { FilingsTable } from '../components/filings/FilingsTable.tsx';
+---
+
+<Layout title="SEC文件 | ATM活动与比特币购入 - 盘盘STRC">
+    <div class="max-w-6xl mx-auto px-4 py-6">
+        <header class="mb-6">
+            <h1 class="text-3xl font-bold font-display text-white">SEC文件</h1>
+            <p class="text-muted mt-2">通过SEC 8-K文件追踪ATM活动。查看股份销售、募集金额和比特币购入情况。</p>
+        </header>
+
+        <FilingsTable client:load />
+
+        <!-- Understanding section -->
+        <div class="mt-12 space-y-6">
+            <h2 class="text-xl font-bold font-display">了解8-K文件</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <GlassCard>
+                    <h3 class="font-bold text-white mb-2">什么是8-K文件？</h3>
+                    <p class="text-sm text-muted">8-K是向SEC提交的重大事件报告。公司通过8-K报告披露ATM股份销售及由此产生的比特币购入。</p>
+                </GlassCard>
+                <GlassCard>
+                    <h3 class="font-bold text-white mb-2">什么是ATM发行？</h3>
+                    <p class="text-sm text-muted">按市价发行(ATM)允许公司以当前市价直接向市场出售优先股，灵活募集资金用于购入比特币。</p>
+                </GlassCard>
+            </div>
+        </div>
+    </div>
+</Layout>
