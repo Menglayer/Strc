@@ -42,14 +42,14 @@ export const API = {
   // Yahoo Finance via CORS proxy (fallback)
   yahoo: {
     chart: (symbol: string, range: string) =>
-      `https://api.allorigins.win/raw?url=${encodeURIComponent(
+      `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(
         `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?range=${range}&interval=1d`
       )}`,
   },
   // strc.live — PRIMARY data source (via CORS proxy)
   strc: {
-    tickerData: `https://api.allorigins.win/raw?url=${encodeURIComponent('https://strc.live/api/ticker-data')}`,
-    secFilings: `https://api.allorigins.win/raw?url=${encodeURIComponent('https://strc.live/api/sec-filings')}`,
+    tickerData: 'https://api.codetabs.com/v1/proxy?quest=https://strc.live/api/ticker-data',
+    secFilings: 'https://api.codetabs.com/v1/proxy?quest=https://strc.live/api/sec-filings',
   },
 } as const;
 
