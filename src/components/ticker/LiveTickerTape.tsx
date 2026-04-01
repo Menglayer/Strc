@@ -99,7 +99,7 @@ export function LiveTickerTape() {
             }
             
             const content = (
-                <div key={`${item.id}-${suffix}`} className="flex items-center gap-2 mx-8 min-w-max">
+                <div className="flex items-center gap-2 mx-8 min-w-max">
                     <span className="relative inline-flex h-2.5 w-2.5">
                         <span className={`absolute inline-flex h-full w-full rounded-full ${item.dotColor} opacity-75 ${item.id === 'strc' ? 'animate-pulse-dot' : ''}`} />
                         <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${item.dotColor}`} />
@@ -121,7 +121,7 @@ export function LiveTickerTape() {
                     </a>
                 );
             }
-            return content;
+            return <div key={`${item.id}-${suffix}`}>{content}</div>;
         });
 
     return (

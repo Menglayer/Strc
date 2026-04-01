@@ -131,7 +131,7 @@ export function DividendsTable() {
                                             <td className="py-3 px-4 font-bold">STRC</td>
                                             <td className="py-3 px-4 text-white">{formatDate(d.exDate)}</td>
                                             <td className="py-3 px-4 text-muted">{formatDate(d.payDate)}</td>
-                                            <td className="py-3 px-4 text-right text-btc-gold">${d.amount}</td>
+                                            <td className="py-3 px-4 text-right text-btc-gold">${d.amount.toFixed(4)}</td>
                                             <td className="py-3 px-4 text-center">
                                                 <span className="px-2 py-0.5 rounded-full bg-green/10 text-green text-xs">{d.distributionType}</span>
                                             </td>
@@ -171,7 +171,7 @@ export function DividendsTable() {
                                     </div>
                                     <div className="grid grid-cols-2 gap-2 text-xs font-mono">
                                         <div><span className="text-muted">付息日: </span>{formatDate(d.payDate)}</div>
-                                        <div><span className="text-muted">金额: </span><span className="text-btc-gold">${d.amount}</span></div>
+                                        <div><span className="text-muted">金额: </span><span className="text-btc-gold">${d.amount.toFixed(4)}</span></div>
                                         <div className="col-span-2">
                                             <span className="text-muted">恢复天数: </span>
                                             <span className={`font-bold ${getRecoveryColor(recoveryDays)}`}>

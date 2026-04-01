@@ -260,9 +260,11 @@ export function TickerDetail({ symbol }: TickerDetailProps) {
             <div className="text-2xl font-mono font-bold text-white">
               <AnimatedNumber value={strcData.extendedHoursPrice} prefix="$" decimals={2} />
             </div>
-            <div className={`text-xs mt-1 font-mono ${strcData.extendedHoursChange >= 0 ? 'text-green' : 'text-red'}`}>
-              {strcData.extendedHoursChange >= 0 ? '+' : ''}{strcData.extendedHoursChange.toFixed(2)} ({strcData.extendedHoursChange >= 0 ? '+' : ''}{strcData.extendedHoursChangePercent.toFixed(2)}%)
-            </div>
+            {strcData.extendedHoursChange != null && strcData.extendedHoursChangePercent != null ? (
+              <div className={`text-xs mt-1 font-mono ${strcData.extendedHoursChange >= 0 ? 'text-green' : 'text-red'}`}>
+                {strcData.extendedHoursChange >= 0 ? '+' : ''}{strcData.extendedHoursChange.toFixed(2)} ({strcData.extendedHoursChangePercent >= 0 ? '+' : ''}{strcData.extendedHoursChangePercent.toFixed(2)}%)
+              </div>
+            ) : null}
             <p className="text-xs text-muted mt-1">盘后价格</p>
           </GlassCard>
         ) : null}
@@ -280,7 +282,7 @@ export function TickerDetail({ symbol }: TickerDetailProps) {
                 ${strcData?.dividends?.current?.amount?.toFixed(4) ?? '--'} / 股
               </div>
               <p className="text-xs text-muted mt-1">
-                年化利率 {strcData?.dividends?.current?.annualizedRate ? (strcData.dividends.current.annualizedRate * 100).toFixed(2) : '--'}%
+                年化利率 {strcData?.dividends?.current?.annualizedRate ? strcData.dividends.current.annualizedRate.toFixed(2) : '--'}%
               </p>
             </>
           )}

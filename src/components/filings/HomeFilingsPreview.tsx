@@ -72,8 +72,8 @@ export function HomeFilingsPreview() {
                     </thead>
                     <tbody className="divide-y divide-white/5 font-mono text-sm">
                         {loading ? (
-                            Array(3).fill(0).map((_, i) => (
-                                <tr key={String(Math.random())}>
+                            [1, 2, 3].map((n) => (
+                                <tr key={`skeleton-row-${n}`}>
                                     <td className="py-3 px-4"><Skeleton className="h-4 w-12" /></td>
                                     <td className="py-3 px-4"><Skeleton className="h-4 w-20" /></td>
                                     <td className="py-3 px-4"><Skeleton className="h-5 w-16 rounded-full" /></td>
@@ -126,8 +126,8 @@ export function HomeFilingsPreview() {
             {/* Mobile filings */}
             <div className="md:hidden p-4 space-y-3">
                 {loading ? (
-                    Array.from({ length: 3 }).map(() => (
-                        <div key={String(Math.random())} className="bg-dark/50 rounded-lg p-3 border border-white/5 space-y-3">
+                    [1, 2, 3].map((n) => (
+                        <div key={`mobile-skeleton-${n}`} className="bg-dark/50 rounded-lg p-3 border border-white/5 space-y-3">
                             <div className="flex justify-between">
                                 <Skeleton className="h-5 w-24" />
                                 <Skeleton className="h-5 w-16 rounded-full" />

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TICKERS, formatCurrency, formatNumber, type TickerSymbol } from '../../lib/constants';
 import { calculateYield, calculateMonthlyIncome, calculateAnnualIncome } from '../../lib/calculations';
+import { fetchStrcTickerData } from '../../lib/api';
 import { GlassCard } from '../ui/GlassCard';
 import { AnimatedNumber } from '../ui/AnimatedNumber';
 
@@ -9,6 +10,19 @@ export function RetirementCalculator() {
   const [ticker, setTicker] = useState<TickerSymbol>('STRC');
   const [sharePrice, setSharePrice] = useState<number>(100.00);
   const [years, setYears] = useState<number>(20);
+  const [livePriceLoaded, setLivePriceLoaded] = useState(false);
+
+  useEffect(() => {
+    fetchStrcTickerData()
+      .then(data => {
+        const price = data.tickers.STRC.closePrice;
+        if (price > 0) {
+          setSharePrice(parseFloat(price.toFixed(2)));
+          setLivePriceLoaded(true);
+        }
+      })
+      .catch(err => console.error('Failed to fetch live price:', err));
+  }, []);
 
   const shares = sharePrice > 0 ? Math.floor(investment / sharePrice) : 0;
   const monthlyIncome = calculateMonthlyIncome(ticker, shares);

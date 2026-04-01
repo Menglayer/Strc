@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { formatCurrency, formatNumber } from '../../lib/constants';
 import { calculateCashRunway, calculateBtcCoverage } from '../../lib/calculations';
+import { fetchStrcTickerData } from '../../lib/api';
 import { GlassCard } from '../ui/GlassCard';
 import { AnimatedNumber } from '../ui/AnimatedNumber';
 
@@ -10,6 +11,16 @@ export function SustainabilityModel() {
   const [totalShares, setTotalShares] = useState<number>(28011111);
    const [annualDividend, setAnnualDividend] = useState<number>(11.50);
   const [usdReserves, setUsdReserves] = useState<number>(500000000);
+
+  useEffect(() => {
+    fetchStrcTickerData()
+      .then(data => {
+        if (data.btcPrice > 0) setBtcPrice(Math.round(data.btcPrice));
+        const strc = data.tickers.STRC;
+        if (strc.annualizedRate > 0) setAnnualDividend(strc.annualizedRate);
+      })
+      .catch(err => console.error('Failed to fetch live data:', err));
+  }, []);
 
   const cashRunway = calculateCashRunway(usdReserves, totalShares, annualDividend / 12);
   const btcCoverage = calculateBtcCoverage(btcHoldings, btcPrice, totalShares, annualDividend);
