@@ -46,10 +46,10 @@ export const API = {
         `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?range=${range}&interval=1d`
       )}`,
   },
-  // strc.live — PRIMARY data source
+  // strc.live — PRIMARY data source (via CORS proxy)
   strc: {
-    tickerData: 'https://strc.live/api/ticker-data',
-    secFilings: 'https://strc.live/api/sec-filings',
+    tickerData: `https://api.allorigins.win/raw?url=${encodeURIComponent('https://strc.live/api/ticker-data')}`,
+    secFilings: `https://api.allorigins.win/raw?url=${encodeURIComponent('https://strc.live/api/sec-filings')}`,
   },
 } as const;
 
